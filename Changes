@@ -1,3 +1,6 @@
+0.04  Tue, 28 Aug 2012 15:13:09 +0200
+  - Add a blessed method.
+
 0.03  Mon, 27 Aug 2012 22:32:12 +0200
   - Restore compatibility with perl 5.14.
 

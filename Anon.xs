@@ -106,3 +106,15 @@ bless (stash, rv)
   PPCODE:
     sv_bless(rv, (HV *)SvRV(stash));
     PUSHs(rv);
+
+SV *
+blessed (klass, obj)
+    SV *klass
+    SV *obj
+  CODE:
+    if (!SvROK(obj) || !SvOBJECT(SvRV(obj)))
+      XSRETURN_UNDEF;
+    RETVAL = newRV_inc((SV *)SvSTASH(SvRV(obj)));
+    sv_bless(RETVAL, gv_stashsv(klass, 0));
+  OUTPUT:
+    RETVAL

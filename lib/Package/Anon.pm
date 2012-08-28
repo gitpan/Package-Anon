@@ -6,7 +6,7 @@ BEGIN {
   $Package::Anon::AUTHORITY = 'cpan:FLORA';
 }
 {
-  $Package::Anon::VERSION = '0.03';
+  $Package::Anon::VERSION = '0.04';
 }
 # ABSTRACT: Anonymous packages
 
@@ -76,6 +76,13 @@ With no C<$name> given, C<__ANON__> will be used.
   my $instance = $stash->bless({});
 
 Bless a C<$reference> into the anonymous package.
+
+=head2 blessed ($obj)
+
+  my $stash = Package::Anon->blessed($obj);
+
+Returns a Package::Anon instance for the package the given C<$obj> is blessed
+into, or undef if C<$obj> isn't an object.
 
 =head2 add_method ($name, $code)
 

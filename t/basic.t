@@ -30,4 +30,9 @@ my $other_stash = Package::Anon->new;
 my $other_obj = $other_stash->bless({});
 ok !$other_obj->can('foo');
 
+my $pkg = Package::Anon->blessed($obj);
+isa_ok($pkg, 'Package::Anon');
+is($pkg, $stash);
+is(Package::Anon->blessed(42), undef);
+
 done_testing;
